@@ -4,7 +4,7 @@ config:
   php: '7.2'
   webroot: public
   via: nginx
-  database: mariadb
+  database: mysql
   cache: redis
   xdebug: true
 proxy:
