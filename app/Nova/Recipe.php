@@ -4,7 +4,9 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Recipe extends Resource
@@ -43,6 +45,9 @@ class Recipe extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Title')->sortable(),
+            Image::make('Image'),
+            Textarea::make('Description'),
+            Text::make('Yield'),
         ];
     }
 
