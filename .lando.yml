@@ -1,0 +1,9 @@
+name: recipes
+recipe: laravel
+config:
+  php: '7.2'
+  webroot: public
+  via: nginx
+  database: mariadb
+  cache: redis
+  xdebug: true
