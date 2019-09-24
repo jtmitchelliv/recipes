@@ -7,3 +7,37 @@ config:
   database: mariadb
   cache: redis
   xdebug: true
+proxy:
+  node:
+    - sync-recipes.lndo.site
+services:
+  # Spin up a node service so we can run gulp
+  node:
+    type: node:custom
+    ssl: true
+    overrides:
+      ports:
+        # expose port 3000 for BrowserSync
+        - "3000"
+      # use a custom Docker image
+      image: colab/buildtools:node-8
+# Additional "lando" commands
+tooling:
+  npm:
+    service: node
+  yarn:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for nginx.
+    cmd: docker-php-ext-enable xdebug && pkill -o -USR2 php-fpm
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for nginx.
+    cmd: rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && pkill -o -USR2 php-fpm
+    user: root
