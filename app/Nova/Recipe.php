@@ -42,7 +42,7 @@ class Recipe extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title'),
+            Text::make('Title')->sortable(),
         ];
     }
 
