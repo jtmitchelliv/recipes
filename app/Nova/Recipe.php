@@ -32,6 +32,8 @@ class Recipe extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'description'
     ];
 
     /**
@@ -43,11 +45,25 @@ class Recipe extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
-            Text::make('Title')->sortable(),
-            Image::make('Image'),
+
+            ID::make()
+                    ->sortable()
+                    ->hideFromIndex(),
+
+            Text::make('Title')
+                    ->sortable(),
+
+            Image::make('Image')
+                    ->disk('public')
+                    ->prunable()
+                    ->deletable()
+                    ->storeOriginalName('attachment_name')
+                    ->storeSize('attachment_size'),
+
             Textarea::make('Description'),
-            Text::make('Yield'),
+
+            Text::make('Yield')
+                    ->hideFromIndex(),
         ];
     }
 
