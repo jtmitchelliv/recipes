@@ -73,6 +73,14 @@ class Recipe extends Resource
                         Text::make('Ingredient')
                     ])
                     ->confirmRemove(),
+
+            Flexible::make('Instructions')
+                    ->button('Add instruction')
+                    ->addLayout('Instruction', 'instruction', [
+                        Text::make('Instruction')
+                        // todo: add optional image field here
+                    ])
+                    ->confirmRemove(),
         ];
     }
 
