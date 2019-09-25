@@ -66,6 +66,14 @@ class Recipe extends Resource
             Text::make('Yield')
                     ->hideFromIndex(),
 
+            // todo: add cooktime and have it stored in proper format
+
+            // todo: add field for keywords taxonomy
+
+            // todo: add field for recipe taxonomy
+
+            // todo: add field for cuisine taxonomy
+
             Flexible::make('Ingredients')
                     ->button('Add ingredient')
                     ->addLayout('Ingredient', 'ingredient', [
