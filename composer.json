@@ -17,8 +17,9 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
+        "laravel/nova": "*",
         "laravel/tinker": "^1.0",
-        "laravel/nova": "*"
+        "whitecube/nova-flexible-content": "^0.1.12"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
