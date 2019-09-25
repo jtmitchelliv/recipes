@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Whitecube\NovaFlexibleContent\Flexible;
 
 class Recipe extends Resource
 {
@@ -64,6 +65,14 @@ class Recipe extends Resource
 
             Text::make('Yield')
                     ->hideFromIndex(),
+
+            Flexible::make('Ingredients')
+                    ->button('Add ingredient')
+                    ->addLayout('Ingredient', 'ingredient', [
+                        Text::make('Amount'),
+                        Text::make('Ingredient')
+                    ])
+                    ->confirmRemove(),
         ];
     }
 
